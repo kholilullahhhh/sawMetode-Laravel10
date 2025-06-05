@@ -65,7 +65,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Tanggal Lahir</label>
-                                                    <input required  type="text" name="tanggal_lahir" class="form-control" value="{{ $data->tanggal_lahir }}">
+                                                    <input required  type="date" name="tgl_lahir" class="form-control" value="{{ $data->tgl_lahir }}">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -78,11 +78,6 @@
                                                     </select>
                                                 </div>
                                             </div>
-
-
-                                            
-
-
 
                                             <div class="col-md-4">
                                             <div class="form-group">

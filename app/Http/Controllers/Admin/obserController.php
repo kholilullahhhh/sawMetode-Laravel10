@@ -16,32 +16,34 @@ class obserController extends Controller
     {
         //$data = tb_obser_disabilitas::orderBy('kecamatan', 'DESC')->get();
         $data = DB::table('tb_obser_disabilitas')
-        ->select('tb_obser_disabilitas.id','tb_wargas.nama', 'tb_disabilitas.kriteria', 'tb_disabilitas.ket','tb_obser_disabilitas.skor')
-        ->leftJoin('tb_wargas','tb_obser_disabilitas.id_warga','=','tb_wargas.id')
-        ->leftJoin('tb_disabilitas','tb_obser_disabilitas.id_disabilitas','=','tb_disabilitas.id')
-        ->orderBy('tb_wargas.nama','asc')
-        ->get();
+            ->select('tb_obser_disabilitas.id', 'tb_wargas.nama', 'tb_disabilitas.kriteria', 'tb_disabilitas.ket', 'tb_obser_disabilitas.skor')
+            ->leftJoin('tb_wargas', 'tb_obser_disabilitas.id_warga', '=', 'tb_wargas.id')
+            ->leftJoin('tb_disabilitas', 'tb_obser_disabilitas.id_disabilitas', '=', 'tb_disabilitas.id')
+            ->orderBy('tb_wargas.nama', 'asc')
+            ->get();
         return view('pages.obser.index', ['menu' => 'obser'], compact('data'));
     }
     public function indexna(string $id)
     {
         $hore = DB::table('tb_obser_disabilitas')
-        ->select('tb_obser_disabilitas.id','tb_wargas.nama', 'tb_disabilitas.kriteria', 'tb_disabilitas.ket','tb_obser_disabilitas.skor')
-        ->leftJoin('tb_wargas','tb_obser_disabilitas.id_warga','=','tb_wargas.id')
-        ->leftJoin('tb_disabilitas','tb_obser_disabilitas.id_disabilitas','=','tb_disabilitas.id')
-        ->where('tb_wargas.id','=',$id)
-        ->orderBy('tb_wargas.nama','asc')
-        ->get();
+            ->select('tb_obser_disabilitas.id', 'tb_wargas.nama', 'tb_disabilitas.kriteria', 'tb_disabilitas.ket', 'tb_obser_disabilitas.skor')
+            ->leftJoin('tb_wargas', 'tb_obser_disabilitas.id_warga', '=', 'tb_wargas.id')
+            ->leftJoin('tb_disabilitas', 'tb_obser_disabilitas.id_disabilitas', '=', 'tb_disabilitas.id')
+            ->where('tb_wargas.id', '=', $id)
+            ->orderBy('tb_wargas.nama', 'asc')
+            ->get();
         $data = [];
         $data[0] = $hore;
         $data[1] = $id;
         return view('pages.warga.observasi', ['menu' => 'warga'], compact('data'));
     }
-    public function store(Request $request)
+    public function store(Request $request, string $id)
     {
         $req = $request->all();
         tb_obser_disabilitas::create($req);
-        return redirect()->route('warga.index')->with('message', 'store');
+
+        // Pass the $id parameter to the route
+        return redirect()->route('warga.observasi', ['id' => $id])->with('message', 'store');
     }
     /**
      * Display the specified resource.
@@ -53,7 +55,7 @@ class obserController extends Controller
         $data = [];
         $data[0] = $xx;
         $data[1] = $xn;
-        return view('pages.obser.create', ['menu' => 'obser'], compact('data'));
+        return view('pages.obser.create', ['menu' => 'obser'], compact('data', 'id'));
     }
     /**
      * Show the form for editing the specified resource.

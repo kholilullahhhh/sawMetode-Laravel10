@@ -53,7 +53,7 @@
                                                     <td>{{ $item->ket }}</td>
                                                     <td>{{ $item->skor }}</td>
                                                     <td>
-                                                        <a href="{{ route('obser.edit', $item->id) }}"
+                                                        <a href="{{ route('obser.edit', ['id' => $item->id, 'id2' => $item->id2]) }}"
                                                             class="btn btn-warning">Edit</a>
                                                         <button onclick="deleteData({{ $item->id }}, 'obser')"
                                                             class="btn btn-danger">Hapus</button>

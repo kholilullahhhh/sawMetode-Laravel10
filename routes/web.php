@@ -79,7 +79,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
         Route::prefix('obser')->group(function () {
             Route::get('/', 'obserController@index')->name('obser.index');
             Route::get('/create', 'obserController@create')->name('obser.create');
-            Route::post('/store', 'obserController@store')->name('obser.store');
+            Route::post('/store/{id}', 'obserController@store')->name('obser.store');
             Route::get('/edit/{id}/{id2}', 'obserController@edit')->name('obser.edit');
             Route::put('/update', 'obserController@update')->name('obser.update');
             Route::post('/hapus/{id}', 'obserController@hapus')->name('obser.hapus');

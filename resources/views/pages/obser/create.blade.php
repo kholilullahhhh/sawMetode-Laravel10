@@ -27,7 +27,7 @@
                                 <h4>Data Observasi untuk {{ $data[0]->nama }}</h4>
                             </div>
                             <div class="card-body">
-                                <form action="{{ route('obser.store') }}" method="post">
+                                <form action="{{ route('obser.store', ['id' => $id]) }}" method="post">
                                     @csrf
                                     <div class="row">
                                     <input hidden type="text" name="id_warga" value="{{ $data[0]->id }}" class="form-control">
