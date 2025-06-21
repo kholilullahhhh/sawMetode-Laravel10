@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class tb_warga extends Model
 {
     use HasFactory;
+    // protected $table = 'tb_warga';
     protected $fillable = [
         'id_pos',
         'dusun',
@@ -22,4 +23,15 @@ class tb_warga extends Model
         'ibu_kandung',
         'ayah_kandung',
     ];
+
+    public function kodepos()
+    {
+        return $this->belongsTo(tb_kodepos::class, 'id_pos');
+    }
+
+    public function observasiDisabilitas()
+    {
+        return $this->hasMany(tb_obser_disabilitas::class, 'id_warga');
+    }
+
 }

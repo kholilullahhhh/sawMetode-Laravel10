@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Support\Facades\Route;
@@ -15,9 +14,15 @@ use Illuminate\Support\Facades\Session;
 |
 */
 
+//landing page
+Route::get('/', 'App\Http\Controllers\LandingController@index')->name('landing.index');
+
+
+
+//auth
 Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers\Auth'], function () {
-    Route::get('/', 'AuthController@login')->name('login');
-    Route::post('/login', 'AuthController@login_action')->name('login_action');
+    Route::get('/login', 'AuthController@login')->name('login');
+    Route::post('/login-actiion', 'AuthController@login_action')->name('login_action');
     Route::get('/regis', 'AuthController@regis')->name('regis');
     Route::post('/regisStore', 'AuthController@regisStore')->name('regisStore');
     // /regisStore
@@ -26,7 +31,7 @@ Route::group(['prefix' => 'auth', 'namespace' => 'App\Http\Controllers\Auth'], f
         return redirect()->route('login');
     })->name('logout');
 });
-Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'ValidasiUser'], function () {
+Route::group(['prefix' => 'admin', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => 'ValidasiUser'], function () {
 
     Route::redirect('/', 'dashboard/admin');
 
@@ -35,7 +40,7 @@ Route::group(['prefix' => '', 'namespace' => 'App\Http\Controllers\Admin', 'midd
 
         Route::get('/general', 'DashboardController@index')->name('dashboard');
         Route::get('/admin', 'UserController@index')->name('admin');
-        
+
         Route::prefix('laporan')->group(function () {
             Route::get('/owner', 'laporanController@owner')->name('laporan.owner');
             Route::get('/admin', 'laporanController@admin')->name('laporan.admin');

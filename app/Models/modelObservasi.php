@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class modelObservasi extends Model
 {
     use HasFactory;
+    protected $table = 'tb_obser_disabilitas';
     protected $fillable = [
         'nama',
         'id_disabilitas',

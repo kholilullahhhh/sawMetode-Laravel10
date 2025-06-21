@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class tb_disabilitas extends Model
 {
     use HasFactory;
+    protected $table = 'tb_disabilitas';
     protected $fillable = [
         'kode',
         'kriteria',
