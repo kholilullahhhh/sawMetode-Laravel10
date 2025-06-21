@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- AOS Animation -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <style>
         :root {
             --primary: #4361ee;
@@ -355,9 +356,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#tentang">Tentang</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#kontak">Kontak</a>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -378,11 +376,7 @@
                         Lihat Data <i class="fas fa-arrow-down ms-2"></i>
                     </a>
                 </div>
-                <div class="col-lg-6" data-aos="fade-left">
-                    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcTZwZmhrN2d6bDNmM3M4OTF1bG05azNpaXBhMHV5NHZqcWN1OWQ0ZSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YTzh3zw4mj1XpjjiIb/giphy.gif"
-                        class="img-fluid rounded-4 shadow-lg animate__animated animate__fadeIn animate__delay-1s"
-                        alt="Inklusi Disabilitas">
-                </div>
+
             </div>
         </div>
     </section>
