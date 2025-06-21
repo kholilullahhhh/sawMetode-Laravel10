@@ -14,8 +14,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="email">Username</label>
-                    <input id="email" type="text" class="form-control" name="username" tabindex="1" required
-                        autofocus>
+                    <input id="email" type="text" class="form-control" name="username" tabindex="1" required autofocus>
                     <div class="invalid-feedback">
                         Please fill in your username
                     </div>
@@ -48,8 +47,10 @@
         </div>
     </div>
     <div class="mt-5 text-muted text-center">
-        Belum punya akun? <a href="{{ route('regis') }}">Akun Baru</a>
+        Belum punya akun? <a href="{{ route('regis') }}">Akun Baru</a><br>
+        Kembali ke <a href="{{ route('landing.index') }}">Beranda</a>
     </div>
+
     @push('scripts')
 
     @endpush
