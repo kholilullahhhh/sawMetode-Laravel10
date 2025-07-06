@@ -436,7 +436,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Kecamatan</th>
-                                <th>Distrik</th>
                                 <th>Jumlah Penyandang</th>
                             </tr>
                         </thead>
@@ -445,7 +444,6 @@
                                 <tr>
                                     <td>{{ $index + 1 }}</td>
                                     <td>{{ $kecamatan->kecamatan }}</td>
-                                    <td>{{ $kecamatan->distrik }}</td>
                                     <td>
                                         <span class="badge-count">{{ $kecamatan->disabilitas_count }}</span>
                                     </td>

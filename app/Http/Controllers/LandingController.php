@@ -35,6 +35,7 @@ class LandingController extends Controller
             ->leftJoin('tb_obser_disabilitas', 'tb_wargas.id', '=', 'tb_obser_disabilitas.id_warga')
             ->groupBy('tb_kodepos.id')
             ->orderByDesc('disabilitas_count')
+            ->limit(18)
             ->get();
 
         return view('pages.landing.index', compact('kecamatanData', 'totalKecamatan', 'totalPenyandang', 'penyandangTerbanyak'));
